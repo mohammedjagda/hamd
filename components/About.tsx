@@ -100,7 +100,7 @@ export default function About() {
         <Reveal delay={0.15}>
           <div className="relative rounded-3xl overflow-hidden shadow-soft aspect-[4/5]">
             <Image
-              src="/images/RawSteamRice.jpg"
+              src="/images/LushGreenRiceFields.jpg"
               alt="Rice harvesting and sorting in India"
               fill
               className="object-cover"
