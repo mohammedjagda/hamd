@@ -6,7 +6,7 @@ import Reveal from './Reveal';
 const gallery = [
   { src: '/images/GoldenRicePaddyFileds.jpg', alt: 'Golden rice paddy field', tall: true },
   { src: '/images/AssortedWholeSpices.jpg', alt: 'Assorted whole spices' },
-  { src: '/images/OnionHarvest.jfif', alt: 'Fresh red onion harvest' },
+  { src: '/images/OnionHarvest.jpg', alt: 'Fresh red onion harvest' },
   { src: 'https://images.unsplash.com/photo-1605732562742-3023a888e56e?w=700&h=900&fit=crop', alt: 'Container yard at port', tall: true },
   { src: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=700&h=500&fit=crop', alt: 'Warehouse storage' },
   { src: 'https://images.unsplash.com/photo-1578575437130-527eed3abbec?w=700&h=500&fit=crop', alt: 'Shipping containers being loaded' },
