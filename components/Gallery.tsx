@@ -32,7 +32,7 @@ export default function Gallery() {
           {gallery.map((g, i) => (
             <Reveal key={g.src} delay={Math.min(i * 0.05, 0.3)} className="mb-4 break-inside-avoid">
               <div className={`relative rounded-2xl overflow-hidden shadow-card group ${g.tall ? 'aspect-[3/4]' : 'aspect-[4/3]'}`}>
-                <Image src={g.src} alt={g.alt} fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
+                <Image src={g.src} alt={g.alt} fill className="object-cover group-hover:scale-105 transition-transform duration-700" unoptimized />
                 <div className="absolute inset-0 bg-gradient-to-t from-field-900/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 <span className="absolute bottom-3 left-3 text-xs text-white/90 font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                   {g.alt}

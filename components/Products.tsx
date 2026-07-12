@@ -53,6 +53,7 @@ export default function Products() {
                     src={p.image}
                     alt={p.name}
                     fill
+                    unoptimized
                     className="object-cover transition-transform duration-700 group-hover:scale-110"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-field-900/85 via-field-900/10 to-transparent" />
@@ -102,6 +103,7 @@ export default function Products() {
                   src={selectedProduct.image}
                   alt={selectedProduct.name}
                   fill
+                  unoptimized
                   className="object-cover"
                 />
               </div>

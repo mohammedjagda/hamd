@@ -35,16 +35,16 @@ export default function Quality() {
         <Reveal delay={0.15}>
           <div className="grid grid-cols-2 gap-4">
             <div className="relative rounded-2xl overflow-hidden aspect-square shadow-card group">
-              <Image src="/images/RawSteamRice.jpg" alt="Quality inspection of rice grains" fill className="object-cover group-hover:scale-105 transition-transform duration-500" />
+              <Image src="/images/RawSteamRice.jpg" alt="Quality inspection of rice grains" fill className="object-cover group-hover:scale-105 transition-transform duration-500" unoptimized />
             </div>
             <div className="relative rounded-2xl overflow-hidden aspect-square shadow-card mt-8 group">
-              <Image src="/images/Coriander.jpg" alt="Export spice packaging" fill className="object-cover group-hover:scale-105 transition-transform duration-500" />
+              <Image src="/images/Coriander.jpg" alt="Export spice packaging" fill className="object-cover group-hover:scale-105 transition-transform duration-500" unoptimized />
             </div>
             <div className="relative rounded-2xl overflow-hidden aspect-square shadow-card -mt-8 group">
-              <Image src="/images/CardamomCloves.jpg" alt="Cardamom and spice quality check" fill className="object-cover group-hover:scale-105 transition-transform duration-500" />
+              <Image src="/images/CardamomCloves.jpg" alt="Cardamom and spice quality check" fill className="object-cover group-hover:scale-105 transition-transform duration-500" unoptimized />
             </div>
             <div className="relative rounded-2xl overflow-hidden aspect-square shadow-card group">
-              <Image src="/images/RedChilli.jpg" alt="Red chilli quality grading" fill className="object-cover group-hover:scale-105 transition-transform duration-500" />
+              <Image src="/images/RedChilli.jpg" alt="Red chilli quality grading" fill className="object-cover group-hover:scale-105 transition-transform duration-500" unoptimized />
             </div>
           </div>
         </Reveal>
