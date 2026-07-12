@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-harvest-50 text-ink-900 antialiased;
+  }
+  ::selection {
+    @apply bg-turmeric-500/30 text-field-900;
+  }
+}
+
+@layer utilities {
+  .eyebrow {
+    @apply font-body text-[11px] uppercase tracking-widest2 text-turmeric-600 font-medium;
+  }
+  .container-wide {
+    @apply max-w-[1400px] mx-auto px-6 md:px-10 lg:px-16;
+  }
+  .route-dash {
+    stroke-dasharray: 6 10;
+    animation: dashMove 3.5s linear infinite;
+  }
+}
+
+@keyframes dashMove {
+  to {
+    stroke-dashoffset: -160;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
