@@ -2,52 +2,48 @@
 
 import Image from 'next/image';
 import Reveal from './Reveal';
+import { ParallaxImage, SectionHeading } from './ui/motion';
 import { certifications } from '@/lib/data';
-import { ShieldCheck } from 'lucide-react';
 
 export default function Quality() {
   return (
-    <section id="quality" className="py-28 bg-white">
-      <div className="container-wide grid lg:grid-cols-2 gap-16 items-center">
-        <Reveal>
-          <p className="eyebrow mb-4">Quality &amp; Compliance</p>
-          <h2 className="font-display text-4xl md:text-5xl text-field-700 leading-tight">
-            Documentation buyers can clear customs with.
-          </h2>
-          <p className="mt-6 text-ink-700/80 leading-relaxed max-w-lg">
-            Every shipment carries moisture testing records, sample-approved specifications and the
-            certificates destination markets expect — prepared before the container is booked, not
-            after a customs query.
-          </p>
+    <section id="quality" className="py-28 md:py-40 bg-harvest-100">
+      <div className="container-wide grid lg:grid-cols-12 gap-14 lg:gap-20">
+        <div className="lg:col-span-6 lg:sticky lg:top-24 lg:self-start">
+          <SectionHeading
+            index="05"
+            eyebrow="Quality & Compliance"
+            title="Documentation buyers can clear customs with."
+          />
+          <Reveal>
+            <p className="mt-8 text-lg text-ink-700 leading-relaxed max-w-xl">
+              Every shipment carries moisture testing records, sample-approved specifications and the
+              certificates destination markets expect — prepared before the container is booked, not
+              after a customs query.
+            </p>
 
-          <div className="mt-8 grid sm:grid-cols-2 gap-4">
-            {certifications.map((c) => (
-              <div key={c.name} className="flex items-center gap-4 rounded-xl border border-harvest-200 p-4 hover:border-field-600/40 hover:bg-field-600/5 transition-all duration-300 bg-white">
-                <div className="relative w-28 h-16 sm:w-32 sm:h-20 shrink-0 bg-white rounded-lg flex items-center justify-center overflow-hidden border border-harvest-100 shadow-sm">
-                  <Image src={c.logo} alt={`${c.name} Logo`} fill className="object-contain" style={{ transform: `scale(${c.scale || 1})` }} unoptimized />
+            <div className="mt-10 grid sm:grid-cols-2 gap-3">
+              {certifications.map((c) => (
+                <div
+                  key={c.name}
+                  className="group flex items-center gap-4 bg-white border-2 border-transparent hover:border-turmeric-500 p-3 transition-colors duration-300"
+                >
+                  <div className="relative w-24 h-14 shrink-0 bg-white overflow-hidden">
+                    <Image src={c.logo} alt={`${c.name} Logo`} fill className="object-contain" style={{ transform: `scale(${c.scale || 1})` }} unoptimized />
+                  </div>
+                  <span className="text-sm text-ink-900 font-semibold leading-snug">{c.name}</span>
                 </div>
-                <span className="text-base text-ink-700 font-medium">{c.name}</span>
-              </div>
-            ))}
-          </div>
-        </Reveal>
+              ))}
+            </div>
+          </Reveal>
+        </div>
 
-        <Reveal delay={0.15}>
-          <div className="grid grid-cols-2 gap-4">
-            <div className="relative rounded-2xl overflow-hidden aspect-square shadow-card group">
-              <Image src="/images/RicePackaging.jpg" alt="Premium rice export packaging" fill className="object-cover group-hover:scale-105 transition-transform duration-500" unoptimized />
-            </div>
-            <div className="relative rounded-2xl overflow-hidden aspect-square shadow-card mt-8 group">
-              <Image src="/images/ExportSpicePackaging.jpg" alt="Export spice packaging standards" fill className="object-cover group-hover:scale-105 transition-transform duration-500" unoptimized />
-            </div>
-            <div className="relative rounded-2xl overflow-hidden aspect-square shadow-card -mt-8 group">
-              <Image src="/images/OnionPackaging.jpg" alt="Fresh onion sorting and packaging" fill className="object-cover group-hover:scale-105 transition-transform duration-500" unoptimized />
-            </div>
-            <div className="relative rounded-2xl overflow-hidden aspect-square shadow-card group">
-              <Image src="/images/Warehousing.jpg" alt="Modern warehousing facility" fill className="object-cover group-hover:scale-105 transition-transform duration-500" unoptimized />
-            </div>
-          </div>
-        </Reveal>
+        <div className="lg:col-span-6 grid grid-cols-2 gap-4 md:gap-6">
+          <ParallaxImage src="/images/RicePackaging.jpg" alt="Premium rice export packaging" className="aspect-[3/4]" />
+          <ParallaxImage src="/images/ExportSpicePackaging.jpg" alt="Export spice packaging standards" className="aspect-[3/4] mt-16" />
+          <ParallaxImage src="/images/OnionPackaging.jpg" alt="Fresh onion sorting and packaging" className="aspect-[3/4]" />
+          <ParallaxImage src="/images/Warehousing.jpg" alt="Modern warehousing facility" className="aspect-[3/4] mt-16" />
+        </div>
       </div>
     </section>
   );

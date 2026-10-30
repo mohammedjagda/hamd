@@ -6,40 +6,40 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Signature palette — derived from an export house's working materials:
-        // sun-dried turmeric, jute sacking, ledger ink, and monsoon-field green.
+        // Monochrome + cobalt palette shared with the freight hero.
+        // Token names are kept from the earlier theme so existing components re-theme in place.
         harvest: {
-          50: '#FBF7EE',   // pale husk — page background
-          100: '#F4EDDC',  // raw jute
-          200: '#E8DCC0',
+          50: '#FFFFFF',   // page background
+          100: '#F4F4F4',  // light grey section
+          200: '#E5E5E5',
         },
         field: {
-          400: '#3E6B52',
-          600: '#1F4536',  // deep monsoon green — primary
-          700: '#163227',
-          900: '#0D1F19',  // near-black ledger green — dark mode base
+          400: '#5C5C5C',
+          600: '#111111',  // primary ink / buttons
+          700: '#111111',  // headings
+          900: '#101010',  // near-black bands (matches hero ground)
         },
         turmeric: {
-          400: '#E4B15C',
-          500: '#CC9A47',  // gold accent — sparingly
-          600: '#A87C33',
+          400: '#7C9BFF',  // light cobalt, for use on dark backgrounds
+          500: '#2F63FF',  // cobalt accent
+          600: '#2F63FF',
         },
         ink: {
-          700: '#2B2822',
-          900: '#1A1814',
+          700: '#333333',
+          900: '#111111',
         },
       },
       fontFamily: {
-        display: ['var(--font-display)'],
-        body: ['var(--font-body)'],
-        mono: ['var(--font-mono)'],
+        display: ['var(--font-anton)', 'Impact', 'sans-serif'],
+        body: ['var(--font-archivo)', 'system-ui', 'sans-serif'],
+        mono: ['var(--font-jbmono)', 'ui-monospace', 'monospace'],
       },
       letterSpacing: {
         widest2: '0.28em',
       },
       boxShadow: {
-        soft: '0 20px 60px -20px rgba(13, 31, 25, 0.25)',
-        card: '0 12px 40px -12px rgba(13, 31, 25, 0.18)',
+        soft: '0 20px 60px -20px rgba(0, 0, 0, 0.18)',
+        card: '0 12px 40px -12px rgba(0, 0, 0, 0.12)',
       },
       backgroundImage: {
         'route-line': 'linear-gradient(90deg, transparent, currentColor, transparent)',

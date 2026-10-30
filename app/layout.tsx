@@ -1,25 +1,24 @@
 import type { Metadata } from 'next';
-import { Playfair_Display, Inter, Poppins } from 'next/font/google';
+import { Anton, Archivo, JetBrains_Mono } from 'next/font/google';
 import './globals.css';
 
-const display = Playfair_Display({
+const anton = Anton({
   subsets: ['latin'],
-  weight: ['500', '600', '700'],
-  variable: '--font-display',
+  weight: '400',
+  variable: '--font-anton',
   display: 'swap',
 });
 
-const body = Inter({
+const archivo = Archivo({
   subsets: ['latin'],
-  weight: ['400', '500', '600'],
-  variable: '--font-body',
+  variable: '--font-archivo',
   display: 'swap',
 });
 
-const mono = Poppins({
+const jbMono = JetBrains_Mono({
   subsets: ['latin'],
-  weight: ['500', '600'],
-  variable: '--font-mono',
+  weight: ['500'],
+  variable: '--font-jbmono',
   display: 'swap',
 });
 
@@ -88,7 +87,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   };
 
   return (
-    <html lang="en" className={`${display.variable} ${body.variable} ${mono.variable}`}>
+    <html lang="en" className={`${anton.variable} ${archivo.variable} ${jbMono.variable}`}>
       <body className="font-body">
         <script
           type="application/ld+json"

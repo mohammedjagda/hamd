@@ -32,8 +32,8 @@ export default function StatCounter({
   }, [inView, value]);
 
   return (
-    <div ref={ref} className="text-center">
-      <div className={`font-display text-4xl md:text-5xl ${light ? 'text-white' : 'text-field-700'}`}>
+    <div ref={ref} className="text-left">
+      <div className={`font-display text-5xl md:text-7xl leading-none ${light ? 'text-white' : 'text-field-700'}`}>
         {count}
         <span className="text-turmeric-400">{suffix}</span>
       </div>

@@ -1,6 +1,6 @@
 'use client';
 
-import Reveal from './Reveal';
+import { SectionHeading, Row } from './ui/motion';
 import { whyChooseUs } from '@/lib/data';
 import {
   BadgeCheck, TrendingDown, Clock, PackageCheck,
@@ -11,29 +11,33 @@ const icons = [BadgeCheck, TrendingDown, Clock, PackageCheck, Handshake, SearchC
 
 export default function WhyChooseUs() {
   return (
-    <section id="why-us" className="py-28 bg-field-900 relative overflow-hidden">
-      <div className="absolute -top-32 -right-32 w-96 h-96 rounded-full bg-field-600/30 blur-3xl" />
-      <div className="container-wide relative">
-        <Reveal className="max-w-2xl">
-          <p className="eyebrow mb-4">Why Choose Us</p>
-          <h2 className="font-display text-4xl md:text-5xl text-white leading-tight">
-            The reliability buyers plan their season around.
-          </h2>
-        </Reveal>
+    <section id="why-us" className="py-28 md:py-40 bg-field-900 text-white">
+      <div className="container-wide grid lg:grid-cols-12 gap-14 lg:gap-20">
+        <div className="lg:col-span-5 lg:sticky lg:top-28 lg:self-start">
+          <SectionHeading
+            index="03"
+            eyebrow="Why Choose Us"
+            title="The reliability buyers plan their season around."
+            dark
+          />
+        </div>
 
-        <div className="mt-14 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="lg:col-span-7 border-t border-white/20">
           {whyChooseUs.map((item, i) => {
             const Icon = icons[i];
             return (
-              <Reveal key={item.title} delay={Math.min(i * 0.06, 0.4)}>
-                <div className="h-full rounded-2xl border border-white/10 bg-white/5 p-7 hover:bg-white/10 hover:-translate-y-1 transition-all duration-300">
-                  <div className="w-11 h-11 rounded-xl bg-turmeric-500/15 flex items-center justify-center text-turmeric-400 mb-5">
-                    <Icon size={20} />
-                  </div>
-                  <h3 className="font-semibold text-white">{item.title}</h3>
-                  <p className="text-sm text-white/60 mt-2 leading-relaxed">{item.desc}</p>
+              <Row key={item.title} className="group flex gap-6 md:gap-10 items-start border-b border-white/20 py-9 md:py-11">
+                <span className="font-display text-5xl md:text-7xl leading-none text-turmeric-500 w-16 md:w-28 shrink-0">
+                  {String(i + 1).padStart(2, '0')}
+                </span>
+                <div className="flex-1">
+                  <h3 className="font-display text-3xl md:text-4xl group-hover:text-turmeric-400 transition-colors">
+                    {item.title}
+                  </h3>
+                  <p className="text-white/65 mt-3 leading-relaxed max-w-md">{item.desc}</p>
                 </div>
-              </Reveal>
+                <Icon size={28} className="text-white/40 group-hover:text-turmeric-400 transition-colors shrink-0 mt-1" />
+              </Row>
             );
           })}
         </div>

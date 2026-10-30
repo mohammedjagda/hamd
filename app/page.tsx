@@ -1,5 +1,6 @@
 import Navbar from '@/components/Navbar';
-import Hero from '@/components/Hero';
+import FreightHero from '@/components/hero/FreightHero';
+import HeroStats from '@/components/HeroStats';
 import Certifications from '@/components/Certifications';
 import About from '@/components/About';
 import Products from '@/components/Products';
@@ -17,7 +18,8 @@ export default function Home() {
   return (
     <main>
       <Navbar />
-      <Hero />
+      <FreightHero />
+      <HeroStats />
       <Certifications />
       <About />
       <Products />

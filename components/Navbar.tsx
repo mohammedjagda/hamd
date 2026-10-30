@@ -4,31 +4,36 @@ import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import { Menu, X, ArrowUpRight } from 'lucide-react';
 
-const links = [
-  { href: '#about', label: 'About' },
-  { href: '#products', label: 'Products' },
-  { href: '#why-us', label: 'Why Choose Us' },
-  { href: '#global-markets', label: 'Global Markets' },
-  { href: '#quality', label: 'Quality' },
-  { href: '#gallery', label: 'Gallery' },
-  { href: '#contact', label: 'Contact' },
-];
+import { navLinks as links } from '@/lib/nav';
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  // The freight hero carries its own navigation; this fixed bar appears once the hero has passed.
+  const [pastHero, setPastHero] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40);
+    const sentinel = document.getElementById('freight-hero-end');
+    const onScroll = () => {
+      setScrolled(window.scrollY > 40);
+      // Checked on every scroll so jumps past the hero (anchor links) are never missed.
+      setPastHero(sentinel ? sentinel.getBoundingClientRect().top < 0 : true);
+    };
     onScroll();
-    window.addEventListener('scroll', onScroll);
+    window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
   return (
     <header
+      aria-hidden={!pastHero}
+      inert={!pastHero}
       className={`fixed top-0 inset-x-0 z-50 transition-all duration-500 ${
-        scrolled ? 'bg-harvest-50/90 backdrop-blur-md shadow-card py-2' : 'bg-transparent py-4'
+        pastHero ? 'translate-y-0' : '-translate-y-full pointer-events-none'
+      } ${
+        scrolled && pastHero
+          ? 'bg-harvest-50/90 backdrop-blur-md shadow-card py-2'
+          : 'bg-transparent py-4'
       }`}
     >
       <nav className="container-wide flex items-center justify-between">
@@ -68,7 +73,7 @@ export default function Navbar() {
 
         <a
           href="#contact"
-          className="hidden lg:inline-flex items-center gap-1.5 rounded-full bg-turmeric-500 text-field-900 text-sm font-semibold px-5 py-2.5 hover:bg-turmeric-400 transition-colors shadow-card"
+          className="hidden lg:inline-flex items-center gap-1.5 rounded-full bg-turmeric-500 text-white text-sm font-semibold px-5 py-2.5 hover:bg-field-600 transition-colors shadow-card"
         >
           Get Quote <ArrowUpRight size={16} />
         </a>
@@ -92,7 +97,7 @@ export default function Navbar() {
                 </a>
               </li>
             ))}
-            <a href="#contact" onClick={() => setOpen(false)} className="inline-flex w-fit items-center gap-1.5 rounded-full bg-turmeric-500 text-field-900 text-sm font-semibold px-5 py-2.5">
+            <a href="#contact" onClick={() => setOpen(false)} className="inline-flex w-fit items-center gap-1.5 rounded-full bg-turmeric-500 text-white text-sm font-semibold px-5 py-2.5">
               Get Quote <ArrowUpRight size={16} />
             </a>
           </ul>

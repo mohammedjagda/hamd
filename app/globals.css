@@ -5,12 +5,21 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    overflow-x: clip; /* clip (not hidden) so position: sticky keeps working */
   }
   body {
+    overflow-x: clip;
     @apply bg-harvest-50 text-ink-900 antialiased;
   }
   ::selection {
     @apply bg-turmeric-500/30 text-field-900;
+  }
+}
+
+@layer components {
+  /* Anton display face: set in caps like the hero */
+  .font-display {
+    @apply font-normal uppercase tracking-[0.01em];
   }
 }
 
